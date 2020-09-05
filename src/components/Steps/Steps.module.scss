@@ -1,0 +1,76 @@
+@import '../../mixins.scss';
+
+//Steps
+.steps {
+   display: flex;
+   justify-content: space-between;
+   width: 492px;
+   height: 30px;
+   margin-bottom: 51px;
+
+   .step {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      width: 30px;
+      height: 30px;
+      font-size: 18px;
+      line-height: 64px;
+      font-weight: bold;
+      color: #FFFFFF;
+      background-color: #1E34A5;
+      border-radius: 50%;
+      transition: background-color 0.1s linear;
+      cursor: pointer;
+
+      &:hover {
+         background-color: #1f318d;
+      }
+   }
+
+   .step:nth-child(1)::before {
+      @include lineBefore();
+   }
+
+   .step:nth-child(2)::before {
+      @include lineBefore();
+   }
+
+   .stepActive {
+      background-color: #DA3F5B;
+
+      &:hover {
+         background-color: #DA3F5B;
+      }
+   }
+}
+
+//steps media
+@media screen and (max-width: 576px) {
+   .steps {
+      width: 360px;
+
+      .step:nth-child(1)::before {
+         width: 115px;
+      }
+
+      .step:nth-child(2)::before {
+         width: 115px;
+      }
+   }
+}
+
+@media screen and (max-width: 360px) {
+   .steps {
+      width: 285px;
+
+      .step:nth-child(1)::before {
+         width: 78px;
+      }
+
+      .step:nth-child(2)::before {
+         width: 78px;
+      }
+   }
+}

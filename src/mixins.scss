@@ -1,0 +1,24 @@
+//mixin steps line :before
+@mixin lineBefore {
+   content: "";
+   width: 184px;
+   height: 2px;
+   position: absolute;
+   left: 39px;
+   top: 50%;
+   transform: translateY(-50%);
+   background: #E8E8E8;
+   opacity: 0.2;
+   border-radius: 8px;
+}
+
+@mixin input {
+   width: 100%;
+   height: 48px;
+   background: #F9F9F9;
+   border-radius: 8px;
+   border: none;
+   outline: none;
+   padding: 8px 16px;
+   margin-top: 8px;
+}

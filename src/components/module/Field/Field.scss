@@ -1,0 +1,31 @@
+@import '../../../mixins.scss';
+
+//error mesage novalid field
+.error__description {
+   position: absolute;
+   left: 0;
+   bottom: -16px;
+   font-weight: normal;
+   font-size: 12px;
+   line-height: 100%;
+   color: #F15557;
+}
+
+//requiredField
+.requiredField {
+   display: inline !important;
+   position: relative;
+
+   &:before {
+      content: "*";
+      position: absolute;
+      top: 0;
+      right: -10px;
+      color: #F15557;
+   }
+}
+
+//novalid field
+.noValidField {
+   box-shadow: 0 0 4px red;
+}
