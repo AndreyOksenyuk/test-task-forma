@@ -4,14 +4,14 @@
 .error__description {
    position: absolute;
    left: 0;
-   bottom: -16px;
+   bottom: -20px;
    font-weight: normal;
    font-size: 12px;
    line-height: 100%;
    color: #F15557;
 }
 
-//requiredField
+//requiredField "*"
 .requiredField {
    display: inline !important;
    position: relative;
@@ -27,5 +27,30 @@
 
 //novalid field
 .noValidField {
-   box-shadow: 0 0 4px red;
+   animation: noValid 0.7s linear forwards;
+}
+
+@keyframes noValid {
+   0%{
+      box-shadow: 0 0 4px rgba(255, 0, 0, 0);
+   }
+   25%{
+      box-shadow: 0 0 4px rgba(255, 0, 0, 5);
+   }
+   50%{
+      box-shadow: 0 0 4px rgb(255, 0, 0);
+   }
+   75%{
+      box-shadow: 0 0 4px rgba(255, 0, 0, 0.3);
+   }
+   100%{
+      box-shadow: 0 0 4px rgb(255, 0, 0);
+   }
+}
+
+//addFile media
+@media screen and (max-width: 425px) {
+   .error__description{
+      bottom: -27px;
+   }
 }

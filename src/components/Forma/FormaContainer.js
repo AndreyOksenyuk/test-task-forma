@@ -5,7 +5,7 @@ import Forma from './Forma';
 import { setValidFieldAC, setDataSubmitAC } from '../../redux/app-reducer'
 
 const FormaContainer = (props) => {
-   return <Forma {...props}/>
+   return <Forma {...props} />
 }
 
 const mapStateToProps = (state) => ({
@@ -14,7 +14,6 @@ const mapStateToProps = (state) => ({
    NumberPeople: state.app.NumberPeople,
    BusinesArea: state.app.BusinesArea,
    Description: state.app.Description,
-   //isValidFile: state.app.isValidFile
 })
 
 export default compose(

@@ -1,20 +1,27 @@
 import React from 'react';
 import style from './Forma.module.scss'
-import YourCompanyName from './FormFields/YourCompanyName';
-//import NamberOfPeople from './FormFields/NamberOfPeople';
-//import Description from './FormFields/Description';
-import AddFile from './FormFields/AddFile';
+import AddFile from './InputFile ';
 import { isRequiredField } from '../module/isRequiredField';
 import Field from '../module/Field'
 
 const Forma = (props) => {
 
-   const hendleSubmit = async (e) => {
+   const hendleSubmit = (e) => {
       e.preventDefault()
-      console.log(props.dataSubmit);
 
-      await isRequiredField(props.dataSubmit, props.setValidFieldAC)
+      const data = props.dataSubmit;
 
+      //Валидация пустых обязательных полей 
+      //isRequiredField (data, actionCreator)
+      isRequiredField(data, props.setValidFieldAC)
+
+      //Submit
+      const submitOk = !!data.numberPeople
+         && !!data.businesArea
+         && !!data.description
+      if (submitOk) {
+         console.log(props.dataSubmit);
+      }
    }
 
    return (
@@ -22,15 +29,19 @@ const Forma = (props) => {
 
          <div className={style.inputTop__wrapper}>
             <div className={style.yourCompany__wrapper}>
-               <YourCompanyName
+               <Field
+                  type='text'
+                  textLabel='Your company name'
+                  textPlaceholder='Type text'
+                  required={false}
                   validator={props.CompanyName}
+                  FieldName='companyName'
+                  setDataSubmitAC={props.setDataSubmitAC}
+                  setValidFieldAC={props.setValidFieldAC}
                />
             </div>
 
             <div className={style.NumberOfPeople__wrapper}>
-               {/* <NamberOfPeople
-                  validator={props.NumberPeople}
-               /> */}
                <Field
                   type='number'
                   min={1}
@@ -39,45 +50,38 @@ const Forma = (props) => {
                   textPlaceholder='1-99'
                   required={true}
                   validator={props.NumberPeople}
-                  FieldKey='numberPeople'
+                  FieldName='numberPeople'
                   setDataSubmitAC={props.setDataSubmitAC}
                   setValidFieldAC={props.setValidFieldAC}
-
                />
             </div>
 
          </div>
 
-         
-
          <div className={style.BusinessArea__wrapper}>
-            <Field 
-               type='text' 
-               textLabel = 'Business area'
-               textPlaceholder= 'Type text'
-               required = {true}
+            <Field
+               type='text'
+               textLabel='Business area'
+               textPlaceholder='Type text'
+               required={true}
                validator={props.BusinesArea}
-               FieldKey='businesArea'
+               FieldName='businesArea'
                setDataSubmitAC={props.setDataSubmitAC}
                setValidFieldAC={props.setValidFieldAC}
             />
          </div>
 
-
          <div className={style.textarea__wrapper}>
-            {/* <Description
-               validator={props.Description}
-            /> */}
-            <Field 
+            <Field
                validator={props.Description}
                type='textarea'
                textLabel='Description'
                textPlaceholder='Type text'
+               resize={false}
                required={true}
-               FieldKey='description'
+               FieldName='description'
                setDataSubmitAC={props.setDataSubmitAC}
                setValidFieldAC={props.setValidFieldAC}
-
             />
          </div>
 

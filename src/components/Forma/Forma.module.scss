@@ -88,8 +88,6 @@
 }
 
 
-
-
 //Description <textarea>
 .textarea__wrapper {
    position: relative;
@@ -105,6 +103,13 @@
    }
 }
 
+//media textarea__wrappe
+@media screen and (max-width: 425px) {
+   .textarea__wrapper {
+      margin-top: 45px;
+   }
+
+}
 
 
 //addFile__wrapper

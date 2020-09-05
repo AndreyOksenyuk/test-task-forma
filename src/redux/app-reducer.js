@@ -1,13 +1,14 @@
 const SET_IS_COMPANY_NAME = 'app-reducer/SET_IS_COMPANY_NAME'
 const SET_DATA_SUBMIT = 'app-reducer/SET_DATA_SUBMIT'
+const SET_FILE_INPUT_VALUE = 'app-reducer/SET_FILE_INPUT_VALUE'
 
 const initialState = {
    dataSubmit: {
-      companyName: '',
-      numberPeople: '',
-      businesArea: '',
-      description: '',
-      file: '',
+      companyName: null,
+      numberPeople: null,
+      businesArea: null,
+      description: null,
+      file: null,
    },
 
    CompanyName: {
@@ -32,14 +33,14 @@ const initialState = {
 const App_Reducer = (state = initialState, action) => {
    switch (action.type) {
       case SET_IS_COMPANY_NAME:
-         switch (action.key) { 
+         switch (action.nameField) {
             case 'companyName':
                return {
                   ...state,
                   CompanyName: {
                      isValid: action.boolean,
                      message: action.message
-                  } 
+                  }
                }
             case 'numberPeople':
                return {
@@ -47,7 +48,7 @@ const App_Reducer = (state = initialState, action) => {
                   NumberPeople: {
                      isValid: action.boolean,
                      message: action.message
-                  } 
+                  }
                }
             case 'businesArea':
                return {
@@ -55,7 +56,7 @@ const App_Reducer = (state = initialState, action) => {
                   BusinesArea: {
                      isValid: action.boolean,
                      message: action.message
-                  } 
+                  }
                }
             case 'description':
                return {
@@ -63,17 +64,25 @@ const App_Reducer = (state = initialState, action) => {
                   Description: {
                      isValid: action.boolean,
                      message: action.message
-                  } 
+                  }
                }
             default:
                return state;
          }
       case SET_DATA_SUBMIT:
-         return{
+         return {
             ...state,
             dataSubmit: {
                ...state.dataSubmit,
                ...action.value
+            }
+         }
+      case SET_FILE_INPUT_VALUE:
+         return {
+            ...state,
+            dataSubmit: {
+               ...state.dataSubmit,
+               file: action.value
             }
          }
       default:
@@ -81,13 +90,18 @@ const App_Reducer = (state = initialState, action) => {
    }
 }
 
-export const setValidFieldAC = (boolean, key,  message) => ({
+export const setValidFieldAC = (boolean, nameField, message) => ({
    type: SET_IS_COMPANY_NAME,
-   boolean, key, message
+   boolean, nameField, message
 })
 
 export const setDataSubmitAC = (value) => ({
    type: SET_DATA_SUBMIT,
+   value
+})
+
+export const setFileInputValueAC = (value) => ({
+   type: SET_FILE_INPUT_VALUE,
    value
 })
 
