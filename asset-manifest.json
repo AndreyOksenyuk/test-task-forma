@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/test-task-forma/static/css/main.a7a3e1ca.chunk.css",
+    "main.js": "/test-task-forma/static/js/main.ae7bfca1.chunk.js",
+    "main.js.map": "/test-task-forma/static/js/main.ae7bfca1.chunk.js.map",
+    "runtime-main.js": "/test-task-forma/static/js/runtime-main.390f6b5c.js",
+    "runtime-main.js.map": "/test-task-forma/static/js/runtime-main.390f6b5c.js.map",
+    "static/js/2.090cabb2.chunk.js": "/test-task-forma/static/js/2.090cabb2.chunk.js",
+    "static/js/2.090cabb2.chunk.js.map": "/test-task-forma/static/js/2.090cabb2.chunk.js.map",
+    "index.html": "/test-task-forma/index.html",
+    "precache-manifest.d391e6f8a0e32a5e5add991a17d03741.js": "/test-task-forma/precache-manifest.d391e6f8a0e32a5e5add991a17d03741.js",
+    "service-worker.js": "/test-task-forma/service-worker.js",
+    "static/css/main.a7a3e1ca.chunk.css.map": "/test-task-forma/static/css/main.a7a3e1ca.chunk.css.map",
+    "static/js/2.090cabb2.chunk.js.LICENSE.txt": "/test-task-forma/static/js/2.090cabb2.chunk.js.LICENSE.txt",
+    "static/media/Folder.svg": "/test-task-forma/static/media/Folder.98bf746b.svg",
+    "static/media/error.svg": "/test-task-forma/static/media/error.30f6810e.svg",
+    "static/media/success.svg": "/test-task-forma/static/media/success.f0977122.svg",
+    "static/media/warning.svg": "/test-task-forma/static/media/warning.a4c1d7a1.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.390f6b5c.js",
+    "static/js/2.090cabb2.chunk.js",
+    "static/css/main.a7a3e1ca.chunk.css",
+    "static/js/main.ae7bfca1.chunk.js"
+  ]
+}
