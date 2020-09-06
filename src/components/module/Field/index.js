@@ -11,6 +11,7 @@ const Field = ({ type = 'text', textLabel = 'Label', textPlaceholder = 'Type tex
    const handleChange = (e) => {
       let value = e.target.value
 
+      //Установка значения поля
       function InputValue(FieldName) {
          switch (FieldName) {
             case 'companyName':
@@ -95,8 +96,9 @@ const Field = ({ type = 'text', textLabel = 'Label', textPlaceholder = 'Type tex
          }
 
          {!validator.isValid &&
-            <span className="error__description">{validator.message}</span>
+            <p className="error__description">{validator.message}</p>
          }
+         
       </>
    );
 }
