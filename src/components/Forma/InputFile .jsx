@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import style from './Forma.module.scss'
-import folderSvg from '../../assets/Folder.svg'
+import style from './Forma.module.scss';
+import folderSvg from '../../assets/Folder.svg';
 import { useDispatch } from 'react-redux';
-import { setFileInputValueAC } from '../../redux/app-reducer';
+import { setFileInputValueAC } from '../../redux/forma-reducer';
 
 const InputFile  = () => {
    const [countFiles, setCountFiles] = useState(0)

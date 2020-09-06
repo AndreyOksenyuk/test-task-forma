@@ -2,22 +2,22 @@ import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import Forma from './Forma';
-import { setValidFieldAC, setDataSubmitAC } from '../../redux/app-reducer'
+import { setValidFieldAC } from '../../redux/forma-reducer';
 
 const FormaContainer = (props) => {
    return <Forma {...props} />
 }
 
 const mapStateToProps = (state) => ({
-   dataSubmit: state.app.dataSubmit,
-   CompanyName: state.app.CompanyName,
-   NumberPeople: state.app.NumberPeople,
-   BusinesArea: state.app.BusinesArea,
-   Description: state.app.Description,
+   dataSubmit: state.forma.dataSubmit,
+   CompanyName: state.forma.CompanyName,
+   NumberPeople: state.forma.NumberPeople,
+   BusinesArea: state.forma.BusinesArea,
+   Description: state.forma.Description,
 })
 
 export default compose(
    connect(mapStateToProps, {
-      setValidFieldAC, setDataSubmitAC
+      setValidFieldAC
    })
 )(FormaContainer)

@@ -1,31 +1,52 @@
-import React from 'react';
-import style from './Forma.module.scss'
+import React, { useState } from 'react';
+import style from './Forma.module.scss';
 import AddFile from './InputFile ';
 import { isRequiredField } from '../module/isRequiredField';
-import Field from '../module/Field'
+import Field from '../module/Field';
+import Alert from '../Alert';
 
 const Forma = (props) => {
+   const [showSuccess, setShowSuccess] = useState(false)
 
    const hendleSubmit = (e) => {
       e.preventDefault()
 
+      //Функция показывает алерт 
+      //showAlert(callback, number)
+      const showAlert = (setShow, ms) => {
+         setShow(true)
+         setTimeout(() => {
+           setShow(false)
+         }, ms);
+      }
+
       const data = props.dataSubmit;
 
       //Валидация пустых обязательных полей 
-      //isRequiredField (data, actionCreator)
+      //isRequiredField (dataSubmit{}, actionCreator)
       isRequiredField(data, props.setValidFieldAC)
 
       //Submit
-      const submitOk = !!data.numberPeople
+      const n = data.numberPeople
+      const submitOk = (!!n && n <= 99 && n > 0)
          && !!data.businesArea
          && !!data.description
+
       if (submitOk) {
-         console.log(props.dataSubmit);
-      }
+         console.log(data);
+         showAlert(setShowSuccess, 4000)
+       } 
    }
 
    return (
       <form className={style.forma} onSubmit={hendleSubmit}>
+
+         {showSuccess &&
+            <Alert
+               type="success"
+               text="Data added successfully"
+            />
+         }
 
          <div className={style.inputTop__wrapper}>
             <div className={style.yourCompany__wrapper}>
@@ -36,26 +57,19 @@ const Forma = (props) => {
                   required={false}
                   validator={props.CompanyName}
                   FieldName='companyName'
-                  setDataSubmitAC={props.setDataSubmitAC}
-                  setValidFieldAC={props.setValidFieldAC}
                />
             </div>
 
             <div className={style.NumberOfPeople__wrapper}>
                <Field
                   type='number'
-                  min={1}
-                  max={99}
                   textLabel='Number of people'
                   textPlaceholder='1-99'
                   required={true}
                   validator={props.NumberPeople}
                   FieldName='numberPeople'
-                  setDataSubmitAC={props.setDataSubmitAC}
-                  setValidFieldAC={props.setValidFieldAC}
                />
             </div>
-
          </div>
 
          <div className={style.BusinessArea__wrapper}>
@@ -66,8 +80,6 @@ const Forma = (props) => {
                required={true}
                validator={props.BusinesArea}
                FieldName='businesArea'
-               setDataSubmitAC={props.setDataSubmitAC}
-               setValidFieldAC={props.setValidFieldAC}
             />
          </div>
 
@@ -80,8 +92,6 @@ const Forma = (props) => {
                resize={false}
                required={true}
                FieldName='description'
-               setDataSubmitAC={props.setDataSubmitAC}
-               setValidFieldAC={props.setValidFieldAC}
             />
          </div>
 

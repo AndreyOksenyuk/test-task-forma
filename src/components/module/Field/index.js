@@ -1,9 +1,12 @@
 import React from 'react';
-import './Field.scss'
+import './Field.scss';
+import { useDispatch } from 'react-redux';
+import { setDataSubmitAC, setValidFieldAC } from '../../../redux/forma-reducer';
 
 const Field = ({ type = 'text', textLabel = 'Label', textPlaceholder = 'Type text',
-   required = false, min = 0, max = 0, resize = false, FieldName,
-   validator, setDataSubmitAC, setValidFieldAC }) => {
+   required = false, resize = false, FieldName,
+   validator }) => {
+   const dispatch = useDispatch()
 
    const handleChange = (e) => {
       let value = e.target.value
@@ -29,28 +32,13 @@ const Field = ({ type = 'text', textLabel = 'Label', textPlaceholder = 'Type tex
 
       let objValue = new InputValue(FieldName)
 
-      setDataSubmitAC(objValue)
+      dispatch(setDataSubmitAC(objValue))
 
-      //Валидация 
+      //Валидация при вводе
       //установка валидного поля
       if (value !== '') {
-         setValidFieldAC(true, FieldName, '')
+         dispatch(setValidFieldAC(true, FieldName, ''))
       }
-
-      //валидация поля "Number of people"
-      if (FieldName === 'numberPeople' && (value < 1 || value > 99)) {
-         setValidFieldAC(false, FieldName, 'Please enter number from 1 to 99')
-      }
-      if (/^0/i.test(value)) {
-         setValidFieldAC(false, FieldName, 'A number cannot start from zero')
-      }
-
-      //Проверка на максимальное количество символов в поле Description.
-      // const maxValue = 100
-      // if (FieldName === 'description' && value.length > maxValue){
-      //    setValidFieldAC(false, FieldName, `Must be ${maxValue} characters or less`)
-      // }
-
    }
 
    //Валидация при потере фокуса
@@ -58,8 +46,22 @@ const Field = ({ type = 'text', textLabel = 'Label', textPlaceholder = 'Type tex
       let value = e.target.value
 
       if (value === '' && required) {
-         setValidFieldAC(false, FieldName, 'This field in required')
+         dispatch(setValidFieldAC(false, FieldName, 'This field in required'))
       }
+
+      //валидация поля "Number of people"
+      if (FieldName === 'numberPeople' && (value < 1 || value > 99)) {
+         dispatch(setValidFieldAC(false, FieldName, 'Please enter number from 1 to 99'))
+      }
+      if (FieldName === 'numberPeople' && /^0/i.test(value)) {
+         dispatch(setValidFieldAC(false, FieldName, 'A number cannot start from zero'))
+      }
+
+      //Проверка на максимальное количество символов в поле Description.
+      // const maxValue = 100
+      // if (FieldName === 'description' && value.length > maxValue){
+      //   dispatch(setValidFieldAC(false, FieldName, `Must be ${maxValue} characters or less`)) 
+      // }
    }
 
    return (
@@ -70,23 +72,10 @@ const Field = ({ type = 'text', textLabel = 'Label', textPlaceholder = 'Type tex
          >{textLabel}</label>
 
          {
-            type === 'text' &&
+            (type === 'text' || type === 'number') &&
             <input
-               type="text"
+               type={type}
                placeholder={textPlaceholder}
-               id="Field_label"
-               onChange={handleChange}
-               onBlur={onBlur}
-               className={validator.isValid ? null : 'noValidField'}
-            />
-         }
-         {
-            type === 'number' &&
-            <input
-               type='number'
-               placeholder={textPlaceholder}
-               min={min}
-               max={max}
                id="Field_label"
                onChange={handleChange}
                onBlur={onBlur}

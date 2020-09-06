@@ -1,8 +1,8 @@
 import { createStore, combineReducers } from "redux";
-import app from './app-reducer'
+import forma from './forma-reducer';
 
 const reducers = combineReducers({
-   app,
+   forma,
 })
 
 export const store = createStore(reducers)
