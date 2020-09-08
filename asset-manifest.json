@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/test-task-forma/static/css/main.0de44aed.chunk.css",
-    "main.js": "/test-task-forma/static/js/main.dccd88bc.chunk.js",
-    "main.js.map": "/test-task-forma/static/js/main.dccd88bc.chunk.js.map",
+    "main.js": "/test-task-forma/static/js/main.d319902e.chunk.js",
+    "main.js.map": "/test-task-forma/static/js/main.d319902e.chunk.js.map",
     "runtime-main.js": "/test-task-forma/static/js/runtime-main.390f6b5c.js",
     "runtime-main.js.map": "/test-task-forma/static/js/runtime-main.390f6b5c.js.map",
     "static/js/2.090cabb2.chunk.js": "/test-task-forma/static/js/2.090cabb2.chunk.js",
     "static/js/2.090cabb2.chunk.js.map": "/test-task-forma/static/js/2.090cabb2.chunk.js.map",
     "index.html": "/test-task-forma/index.html",
-    "precache-manifest.ebb53443f051c3a9652114adc6877ca7.js": "/test-task-forma/precache-manifest.ebb53443f051c3a9652114adc6877ca7.js",
+    "precache-manifest.ea7ec11e71f0224d4a60c788b34de421.js": "/test-task-forma/precache-manifest.ea7ec11e71f0224d4a60c788b34de421.js",
     "service-worker.js": "/test-task-forma/service-worker.js",
     "static/css/main.0de44aed.chunk.css.map": "/test-task-forma/static/css/main.0de44aed.chunk.css.map",
     "static/js/2.090cabb2.chunk.js.LICENSE.txt": "/test-task-forma/static/js/2.090cabb2.chunk.js.LICENSE.txt",
@@ -21,6 +21,6 @@
     "static/js/runtime-main.390f6b5c.js",
     "static/js/2.090cabb2.chunk.js",
     "static/css/main.0de44aed.chunk.css",
-    "static/js/main.dccd88bc.chunk.js"
+    "static/js/main.d319902e.chunk.js"
   ]
 }
